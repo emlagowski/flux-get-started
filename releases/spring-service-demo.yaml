@@ -6,6 +6,7 @@ metadata:
   namespace: demo
   annotations:
     fluxcd.io/automated: "true"
+    filter.fluxcd.io/chart-image: glob:sha-*
 spec:
   releaseName: spring-service
   chart:
