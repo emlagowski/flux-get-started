@@ -10,8 +10,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: "{{ template "spring-service.fullname" . }}"
-      release: {{ .Release.Name | quote }}
+      app: "{{ template "spring-service.name" . }}"
+      release: {{ .Release.Name }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
