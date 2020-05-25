@@ -21,7 +21,7 @@ spec:
       imagePullSecrets: regcred
     service:
       name: spring-service
-      type: ClusterIP
+      type: NodePort
       externalPort: 8080
       internalPort: 8080
     ingress:
