@@ -4,7 +4,6 @@
 replicaCount: 1
 image:
   repository: docker.pkg.github.com/emlagowski/spring-service-demo/spring-service-demo
-  tag: ea6
   pullPolicy: IfNotPresent
   imagePullSecrets: regcred
 service:

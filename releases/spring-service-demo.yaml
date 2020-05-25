@@ -5,7 +5,7 @@ metadata:
   name: spring-service
   namespace: demo
   annotations:
-    fluxcd.io/automated: "false"
+    fluxcd.io/automated: "true"
 spec:
   releaseName: spring-service
   chart:
@@ -15,7 +15,6 @@ spec:
   values:
     image:
       repository: docker.pkg.github.com/emlagowski/spring-service-demo/spring-service-demo
-      tag: ea6
       pullPolicy: IfNotPresent
       imagePullSecrets: regcred
     service:
