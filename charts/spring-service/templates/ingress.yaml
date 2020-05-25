@@ -12,13 +12,11 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   rules:
-    {{- range $host := .Values.ingress.hosts }}
-    - http:
-        paths:
-          - path: /
-            backend:
-              serviceName: {{ $serviceName }}
-              servicePort: {{ $servicePort }}
-    {{- end -}}
+  - http:      
+      paths:
+        - path: /
+          backend:
+            serviceName: {{ $serviceName }}
+            servicePort: {{ $servicePort }}
 
 {{- end }}
