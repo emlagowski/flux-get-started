@@ -8,6 +8,10 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
+  selector:
+    matchLabels:
+      app: "{{ template "spring-service.fullname" . }}"
+      release: {{ .Release.Name | quote }}
   replicas: {{ .Values.replicaCount }}
   template:
     metadata:
