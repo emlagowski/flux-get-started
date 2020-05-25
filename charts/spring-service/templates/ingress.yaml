@@ -1,0 +1,24 @@
+{{- if .Values.ingress.enabled }}
+{{- $serviceName := include "spring-service.fullname" . -}}
+{{- $servicePort := .Values.service.externalPort -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "spring-service.fullname" . }}
+  labels:
+    app: "{{ template "spring-service.name" . }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  rules:
+    {{- range $host := .Values.ingress.hosts }}
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: {{ $servicePort }}
+    {{- end -}}
+
+{{- end }}

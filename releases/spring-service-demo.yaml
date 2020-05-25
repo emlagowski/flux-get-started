@@ -24,4 +24,6 @@ spec:
       type: ClusterIP
       externalPort: 8080
       internalPort: 8080
+    ingress:
+      enabled: true
     resources: {}
