@@ -16,7 +16,7 @@ spec:
   values:
     image:
       repository: docker.pkg.github.com/emlagowski/spring-service-demo/spring-service-demo
-      tag: sha-d3810d4
+      tag: sha-633acbe
       pullPolicy: IfNotPresent
       imagePullSecrets: regcred
     service:
