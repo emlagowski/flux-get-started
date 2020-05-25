@@ -1,0 +1,26 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: spring-service
+  namespace: demo
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  releaseName: spring-service
+  chart:
+    git: ssh://git@github.com/emlagowski/flux-get-started
+    ref: master
+    path: charts/spring-service
+  values:
+    image:
+      repository: docker.pkg.github.com/emlagowski/spring-service-demo/spring-service-demo
+      tag: ea6
+      pullPolicy: IfNotPresent
+      imagePullSecrets: regcred
+    service:
+      name: spring-service
+      type: ClusterIP
+      externalPort: 8080
+      internalPort: 8080
+    resources: {}
